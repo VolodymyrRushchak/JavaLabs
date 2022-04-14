@@ -1,4 +1,4 @@
-package lab2;
+package ua.lviv.iot.lab2;
 
 import lab2.model.*;
 

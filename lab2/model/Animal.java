@@ -1,4 +1,4 @@
-package lab2.model;
+package ua.lviv.iot.lab2.model;
 
 public abstract class Animal {
     private final boolean isCarnivorous;

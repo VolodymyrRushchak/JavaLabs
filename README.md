@@ -1,5 +1,7 @@
 # JavaLabs
 
-Lab #1
+Lab №2
+The task was to create class hierarchy for animals which lives in Antarctica.
 
-The task was to create a java record class, which encapsulates information about printers. Record must include 6 private fields, 1 static field, 3 different constructors, a static method, which return a value of the static field. This record class also has to include an overridden method toString()
+Lab №3
+The task was to create a manager interface and a class which implements it. The manager must be able to filter a list of animals and return those who are carnivores and eat meat in amount not less than a given value.

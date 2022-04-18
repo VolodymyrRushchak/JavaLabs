@@ -43,36 +43,3 @@ public class AnimalManager implements IAnimalManager {
 
 }
 
-class Main {
-    public static void main(String[] args) {
-        List<Animal> list = new ArrayList<>();
-        list.add(new Seal(6,"Kovalski","WHITE-BLACK",false, false));
-        list.add(new Seal(2,"Riadovoy","WHITE-BLACK",false, false));
-        list.add(new Seal(1,"Ricko","WHITE-BLACK",false, false));
-        list.add(new Seal(5,"Shckiper","WHITE-BLACK",false, false));
-        AnimalManager manager = new AnimalManager(list);
-
-        for (Animal animal: manager.getCarnivorousWithFoodConsumptionNotLessThan(5)) {
-            System.out.println(animal.getFoodConsumption());
-        }
-
-        manager.sortByFoodConsumption(true);
-
-        System.out.println();
-
-        for (Animal animal: list) {
-            System.out.println(animal.getFoodConsumption());
-        }
-
-        manager.sortByFoodConsumption(false);
-
-        System.out.println();
-
-        for (Animal animal: list) {
-            System.out.println(animal.getFoodConsumption());
-        }
-
-
-
-    }
-}

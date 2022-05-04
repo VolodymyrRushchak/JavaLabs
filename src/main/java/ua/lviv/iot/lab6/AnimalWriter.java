@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AnimalWriter {
     public static void writeToFile(List<Animal> animals) throws IOException {
-        FileWriter fileWriter = new FileWriter("animals.csv");
+        FileWriter fileWriter = new FileWriter("src\\test\\java\\test_resources\\animals.csv");
 
         animals.sort(new Comparator<Animal>() {
             @Override

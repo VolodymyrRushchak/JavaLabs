@@ -1,5 +1,7 @@
 package ua.lviv.iot.lab2.model;
+import lombok.Getter;
 
+@Getter
 public abstract class Animal {
     private final boolean isCarnivorous;
     private final double foodConsumption;   // in kilograms per day
@@ -13,19 +15,4 @@ public abstract class Animal {
         this.color = color;
     }
 
-    public boolean isCarnivorous(){
-        return isCarnivorous;
-    }
-
-    public double getFoodConsumption(){
-        return foodConsumption;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getColor() {
-        return color;
-    }
 }

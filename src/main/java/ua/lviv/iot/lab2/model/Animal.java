@@ -15,4 +15,12 @@ public abstract class Animal {
         this.color = color;
     }
 
+    public String getHeaders() {
+        return "isCarnivorous,foodConsumption,name,color";
+    }
+
+    public String toCSV() {
+        return isCarnivorous + "," + foodConsumption + "," + name + "," + color;
+    }
+    
 }

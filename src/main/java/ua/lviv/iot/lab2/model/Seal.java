@@ -13,5 +13,13 @@ public class Seal extends Animal {
         this.isCute = isCute;
         this.isRussian = isRussian;
     }
+    
+    public String getHeaders() {
+        return super.getHeaders() + ",isCute,isRussian";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + isCute + "," + isRussian;
+    }
 
 }

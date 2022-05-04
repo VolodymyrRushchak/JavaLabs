@@ -21,7 +21,7 @@ public class AnimalWriterTest {
     public void testWritingAnimalsEmptyListCase() throws IOException {
         List<Animal> list = new ArrayList<>();
         AnimalWriter.writeToFile(list);
-        FileReader file = new FileReader("animals.csv");
+        FileReader file = new FileReader("src\\test\\java\\test_resources\\animals.csv");
         Scanner scanner = new Scanner(file);
         StringBuilder result = new StringBuilder();
         while (scanner.hasNextLine()){
@@ -39,8 +39,8 @@ public class AnimalWriterTest {
         list.add(new Penguin(4.5,"Shkiper","White-Black",false));
         list.add(new Penguin(5,"Rico","White-Black",true));
         AnimalWriter.writeToFile(list);
-        assertEquals(-1L, Files.mismatch(Path.of("animals.csv"),
-                Path.of("animalsTestTemplate.csv")));
+        assertEquals(-1L, Files.mismatch(Path.of("src\\test\\java\\test_resources\\animals.csv"),
+                Path.of("src\\test\\java\\test_resources\\animalsTestTemplate.csv")));
     }
 
     @Test
@@ -51,8 +51,8 @@ public class AnimalWriterTest {
         list.add(new Penguin(201,"Rico","White-Black",true));
         list.add(new Seal(13.3,"Obzora","Gray",true,false));
         AnimalWriter.writeToFile(list);
-        assertEquals(-1L, Files.mismatch(Path.of("animals.csv"),
-                Path.of("animalsTestTemplateDifferentInstances.csv")));
+        assertEquals(-1L, Files.mismatch(Path.of("D:\\VolodymyrRushchak\\MyJavaPrograms\\University\\src\\test\\java\\test_resources\\animals.csv"),
+                Path.of("D:\\VolodymyrRushchak\\MyJavaPrograms\\University\\src\\test\\java\\test_resources\\animalsTestTemplateDifferentInstances.csv")));
     }
 
 }

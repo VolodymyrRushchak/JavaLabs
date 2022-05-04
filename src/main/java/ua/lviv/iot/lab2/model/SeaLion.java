@@ -11,5 +11,13 @@ public class SeaLion extends Animal {
         super(true, foodConsumption, name, color);
         this.eatsPenguins = eatsPenguins;
     }
+    
+    public String getHeaders() {
+        return super.getHeaders() + ",eatsPenguins";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + eatsPenguins;
+    }
 
 }

@@ -9,5 +9,13 @@ public class Penguin extends Animal {
         super(false, foodConsumption, name, color);
         this.canFly = canFly;
     }
+    
+    public String getHeaders() {
+        return super.getHeaders() + ",canFly";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + canFly;
+    }
 
 }

@@ -1,5 +1,9 @@
 package ua.lviv.iot.lab2.model;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Seal extends Animal {
     private boolean isCute;
     private boolean isRussian;
@@ -8,22 +12,6 @@ public class Seal extends Animal {
         super(true, foodConsumption, name, color);
         this.isCute = isCute;
         this.isRussian = isRussian;
-    }
-
-    public boolean isCute() {
-        return isCute;
-    }
-
-    public boolean isRussian() {
-        return isRussian;
-    }
-
-    public void setCute(boolean cute) {
-        isCute = cute;
-    }
-
-    public void setRussian(boolean russian) {
-        isRussian = russian;
     }
 
 }

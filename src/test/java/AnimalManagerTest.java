@@ -13,8 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalManagerTest {
-    private static AnimalManager animalManager;
-    private static List<Animal> animalList;
+    private AnimalManager animalManager;
 
     @BeforeEach
     void initAnimalManager(){
@@ -25,12 +24,19 @@ public class AnimalManagerTest {
         animalList.add(new Seal(13.3,"Obzora","Gray",true,false));
         animalManager = new AnimalManager(animalList);
     }
+    
+    @Test
+    public void testGettingAnimalList() {
+        assertEquals("Csar" ,animalManager.getAnimalList().get(0).getName());
+        assertEquals("Anton" ,animalManager.getAnimalList().get(1).getName());
+        assertEquals("Rico" ,animalManager.getAnimalList().get(2).getName());
+        assertEquals("Obzora" ,animalManager.getAnimalList().get(3).getName());
+    }
 
     @Test
     public void testGettingCarnivorousWithFoodConsumptionNotLessThanNullCase(){
-        AnimalManager animalManager = new AnimalManager(null);
-        assertThrows(NullPointerException.class,
-                ()->animalManager.getCarnivorousWithFoodConsumptionNotLessThan(8));
+        AnimalManager animalManager = new AnimalManager(new ArrayList<Animal>());
+        assertEquals(0, animalManager.getCarnivorousWithFoodConsumptionNotLessThan(8).size());
     }
 
     @Test
@@ -48,15 +54,15 @@ public class AnimalManagerTest {
     public void testGettingCarnivorousWithFoodConsumptionNotLessThanRegularCase(){
         List<Animal> testList = animalManager.getCarnivorousWithFoodConsumptionNotLessThan(8);
         assertEquals(2,testList.size());
-        assertTrue(testList.contains(animalList.get(0)));
-        assertTrue(testList.contains(animalList.get(3)));
+        assertTrue(testList.contains(animalManager.getAnimalList().get(0)));
+        assertTrue(testList.contains(animalManager.getAnimalList().get(3)));
     }
 
     @Test
     public void testSortingByFoodConsumptionDescendingNullCase(){
-        AnimalManager animalManager = new AnimalManager(null);
-        assertThrows(NullPointerException.class,
-                ()->animalManager.sortByFoodConsumption(false));
+        AnimalManager animalManager = new AnimalManager(new ArrayList<Animal>());
+        animalManager.sortByFoodConsumption(false);
+        assertEquals(0, animalManager.getAnimalList().size());
     }
 
     @Test
@@ -66,24 +72,24 @@ public class AnimalManagerTest {
         animalList.add(seal);
         AnimalManager animalManager = new AnimalManager(animalList);
         animalManager.sortByFoodConsumption(false);
-        assertEquals(1,animalList.size());
-        assertTrue(animalList.contains(seal));
+        assertEquals(1,animalManager.getAnimalList().size());
+        assertTrue(animalManager.getAnimalList().contains(seal));
     }
 
     @Test
     public void testSortingByFoodConsumptionDescendingRegularCase(){
         animalManager.sortByFoodConsumption(false);
-        assertEquals(201,animalList.get(0).getFoodConsumption());
-        assertEquals(13.3,animalList.get(1).getFoodConsumption());
-        assertEquals(9,animalList.get(2).getFoodConsumption());
-        assertEquals(5.5,animalList.get(3).getFoodConsumption());
+        assertEquals(201,animalManager.getAnimalList().get(0).getFoodConsumption());
+        assertEquals(13.3,animalManager.getAnimalList().get(1).getFoodConsumption());
+        assertEquals(9,animalManager.getAnimalList().get(2).getFoodConsumption());
+        assertEquals(5.5,animalManager.getAnimalList().get(3).getFoodConsumption());
     }
 
     @Test
     public void testSortingByFoodConsumptionAscendingNullCase(){
-        AnimalManager animalManager = new AnimalManager(null);
-        assertThrows(NullPointerException.class,
-                ()->animalManager.sortByFoodConsumption(true));
+        AnimalManager animalManager = new AnimalManager(new ArrayList<Animal>());
+        animalManager.sortByFoodConsumption(true);
+        assertEquals(0, animalManager.getAnimalList().size());
     }
 
     @Test
@@ -93,17 +99,17 @@ public class AnimalManagerTest {
         animalList.add(seal);
         AnimalManager animalManager = new AnimalManager(animalList);
         animalManager.sortByFoodConsumption(true);
-        assertEquals(1,animalList.size());
-        assertTrue(animalList.contains(seal));
+        assertEquals(1,animalManager.getAnimalList().size());
+        assertTrue(animalManager.getAnimalList().contains(seal));
     }
 
     @Test
     public void testSortingByFoodConsumptionAscendingRegularCase(){
         animalManager.sortByFoodConsumption(true);
-        assertEquals(5.5,animalList.get(0).getFoodConsumption());
-        assertEquals(9,animalList.get(1).getFoodConsumption());
-        assertEquals(13.3,animalList.get(2).getFoodConsumption());
-        assertEquals(201,animalList.get(3).getFoodConsumption());
+        assertEquals(5.5,animalManager.getAnimalList().get(0).getFoodConsumption());
+        assertEquals(9,animalManager.getAnimalList().get(1).getFoodConsumption());
+        assertEquals(13.3,animalManager.getAnimalList().get(2).getFoodConsumption());
+        assertEquals(201,animalManager.getAnimalList().get(3).getFoodConsumption());
     }
 
 }

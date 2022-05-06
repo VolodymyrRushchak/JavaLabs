@@ -14,7 +14,7 @@ public class AnimalManager implements IAnimalManager {
     private List<Animal> animalList;
 
     public AnimalManager(List<Animal> animalList){
-        this.animalList = animalList;
+        this.animalList = new ArrayList<>(animalList);
     }
 
 
@@ -27,18 +27,20 @@ public class AnimalManager implements IAnimalManager {
 
     @Override
     public void sortByFoodConsumption(boolean ascending) {
-        animalList.sort(new Comparator<Animal>() {
-            @Override
-            public int compare(Animal o1, Animal o2) {
-                double difference = o1.getFoodConsumption() - o2.getFoodConsumption();
-                if      (difference < 0)
-                    return ascending ? -1 : 1;
-                else if (difference == 0)
-                    return 0;
-                else
-                    return ascending ? 1 : -1;
+        animalList.sort((o1, o2) -> {
+            double difference = o1.getFoodConsumption() - o2.getFoodConsumption();
+            if (difference < 0) {
+                return ascending ? -1 : 1;
+            } else if ((int) difference == 0) {
+                return 0;
+            } else {
+                return ascending ? 1 : -1;
             }
         });
+    }
+    
+    public List<Animal> getAnimalList() {
+        return new ArrayList<>(animalList);
     }
 
 }

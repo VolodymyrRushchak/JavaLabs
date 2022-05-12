@@ -1,5 +1,9 @@
 package ua.lviv.iot.lab2.model;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class SeaLion extends Animal {
     private boolean eatsPenguins;
 
@@ -7,13 +11,13 @@ public class SeaLion extends Animal {
         super(true, foodConsumption, name, color);
         this.eatsPenguins = eatsPenguins;
     }
-
-    public boolean isEatsPenguins() {
-        return eatsPenguins;
+    
+    public String getHeaders() {
+        return super.getHeaders() + ",eatsPenguins";
     }
 
-    public void setEatsPenguins(boolean eatsPenguins) {
-        this.eatsPenguins = eatsPenguins;
+    public String toCSV() {
+        return super.toCSV() + "," + eatsPenguins;
     }
 
 }

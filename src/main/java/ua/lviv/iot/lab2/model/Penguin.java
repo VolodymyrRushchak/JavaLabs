@@ -1,5 +1,7 @@
 package ua.lviv.iot.lab2.model;
+import lombok.Getter;
 
+@Getter
 public class Penguin extends Animal {
     private final boolean canFly;
 
@@ -7,9 +9,13 @@ public class Penguin extends Animal {
         super(false, foodConsumption, name, color);
         this.canFly = canFly;
     }
+    
+    public String getHeaders() {
+        return super.getHeaders() + ",canFly";
+    }
 
-    public boolean canFly() {
-        return canFly;
+    public String toCSV() {
+        return super.toCSV() + "," + canFly;
     }
 
 }

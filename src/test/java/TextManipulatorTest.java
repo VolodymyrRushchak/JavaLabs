@@ -19,15 +19,15 @@ public class TextManipulatorTest {
     @Test
     public void testRemovingWordsOnConsonantRegularCase() {
         TextManipulator textManipulator = new TextManipulator();
-        String text = "a b A B ab ba AB BA abcd bcde Bcde ACDC vdfdgergwef abc cbd";
+        String text = "a b, A B ab ba AB BA. abcd bcde? Bcde ACDC vdfdgergwef abc cbd!";
         String result = textManipulator.removeWordsOnConsonant(text, 1);
-        assertEquals("a  A  ab ba AB BA abcd bcde Bcde ACDC vdfdgergwef abc cbd", result);
+        assertEquals("a , A  ab ba AB BA. abcd bcde? Bcde ACDC vdfdgergwef abc cbd!", result);
         result = textManipulator.removeWordsOnConsonant(text, 2);
-        assertEquals("a b A B ab  AB  abcd bcde Bcde ACDC vdfdgergwef abc cbd", result);
+        assertEquals("a b, A B ab  AB . abcd bcde? Bcde ACDC vdfdgergwef abc cbd!", result);
         result = textManipulator.removeWordsOnConsonant(text, 3);
-        assertEquals("a b A B ab ba AB BA abcd bcde Bcde ACDC vdfdgergwef abc ", result);
+        assertEquals("a b, A B ab ba AB BA. abcd bcde? Bcde ACDC vdfdgergwef abc !", result);
         result = textManipulator.removeWordsOnConsonant(text, 4);
-        assertEquals("a b A B ab ba AB BA abcd   ACDC vdfdgergwef abc cbd", result);
+        assertEquals("a b, A B ab ba AB BA. abcd ?  ACDC vdfdgergwef abc cbd!", result);
 
     }
 
